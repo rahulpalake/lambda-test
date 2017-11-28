@@ -1,0 +1,13 @@
+{
+  "name": "greeting-lambda",
+  "version": "1.0.0",
+  "description": "Sample Greeting Lambda function",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "aws-sdk": "2.4.0",
+    "chai": "3.5.0",
+    "mocha": "2.5.3",
+    "xunit-file": "1.0.0"
+  }
+}
