@@ -11,6 +11,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 build_number=$1
 lambda_name=$2
 operation=$3
+aliasname=$4
 
 #echo $lambda_name
 #exit 1
@@ -30,5 +31,5 @@ echo -e "\n==================== Deploy Lambda =============================\n"
 echo -e "\n==================== Publish Lambda Version ====================\n"
 ./5-publish-version.sh $build_number $lambda_name
 
-echo -e "\n==================== Update STAGE Lambda Alias ===================\n"
-./6-update-stage-alias.sh $build_number $lambda_name
+echo -e "\n==================== Update ${alias} Lambda Alias ===================\n"
+./6-update-stage-alias.sh $build_number $lambda_name $aliasname
