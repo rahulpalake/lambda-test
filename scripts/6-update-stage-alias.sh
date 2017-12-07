@@ -11,5 +11,6 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 build_number=$1
 alias="STAGE"
+lambda_name=$2
 
-./update-alias.sh $build_number $alias
+./update-alias.sh $build_number $alias $lambda_name

@@ -7,7 +7,7 @@
 
 set -e
 
-lambda_name=GreetingLambda
+lambda_name=$3
 build_number=$1
 alias=$2
 
@@ -21,6 +21,11 @@ fi
 # Lookup the Lambda version provided by AWS by looking at the build_number in the description
 lambda_version=$(aws lambda list-versions-by-function --function-name $lambda_name --region $aws_region --output json| jq -r ".Versions[] | select(.Version!=\"\$LATEST\") | select(.Description == \"${build_number}\").Version")
 echo "Found matching Lambda version $lambda_version for build number $build_number"
+
+if [ -z "$lambda_version" ]; then
+    lambda_version=1
+    echo "Setting lambda_version to 1"
+fi
 
 # Fetch existing aliases
 existing_aliases=$(aws lambda list-aliases --function-name $lambda_name --region $aws_region --output json| jq -r '.Aliases[] | {Name: .Name}')

@@ -7,7 +7,8 @@
 
 set -e
 
-lambda_name=GreetingLambda
+#lambda_name=GreetingLambda
+lambda_name=$2
 build_number=$1
 
 if [ -z "$AWS_DEFAULT_REGION" ]; then
